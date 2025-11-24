@@ -1,0 +1,73 @@
+/* RTL Direction Support */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Right alignment for text */
+.label, .button, .text-field, .comboBox {
+    -fx-text-alignment: right;
+}
+
+/* Table right alignment */
+.table-view .table-column {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+/* Right alignment for form elements */
+.text-field {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+.comboBox {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+/* Menu and Tab right alignment */
+.menu-button > .label {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+.tab .tab-label {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+/* Button styles */
+.button {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-opacity: 0.8;
+}
+
+/* Table styles */
+.table-view {
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #f8f9fa;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #ffffff;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+/* Text field styles */
+.text-field, .comboBox {
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+.text-field:focused, .comboBox:focused {
+    -fx-border-color: #3498db;
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://salaheldin.vercel.app/sitemap.xml

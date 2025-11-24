@@ -1,0 +1,13 @@
+{
+  "name": "salaheldin-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio website for Salaheldin Mohamed",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Building static site'",
+    "dev": "echo 'Running development server'"
+  },
+  "keywords": ["portfolio", "computer-science", "cybersecurity"],
+  "author": "Salaheldin Mohamed",
+  "license": "MIT"
+}

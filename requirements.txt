@@ -1,0 +1,11 @@
+# This system uses only built-in Python libraries
+# No external dependencies required!
+
+# Required built-in modules:
+# - tkinter
+# - sqlite3 
+# - datetime
+# - random
+# - time
+# - math
+# - hashlib
