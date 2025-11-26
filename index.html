@@ -15,6 +15,24 @@
             --secondary: #64748b;
             --accent: #f59e0b;
             --accent-light: #fbbf24;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border: #e2e8f0;
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            --success: #10b981;
+            --error: #ef4444;
+            --transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        [data-theme="dark"] {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --secondary: #64748b;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
             --background: #0f172a;
             --surface: #1e293b;
             --text-primary: #f8fafc;
@@ -23,7 +41,6 @@
             --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             --success: #10b981;
             --error: #ef4444;
-            --transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         * {
@@ -61,6 +78,13 @@
             z-index: -1;
         }
 
+        [data-theme="dark"] body::before {
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+        }
+
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(180deg); }
@@ -78,13 +102,17 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(30, 41, 59, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             box-shadow: var(--shadow);
             z-index: 1000;
             height: clamp(60px, 8vh, 75px);
             transition: background 0.3s ease, transform 0.3s ease;
             border-bottom: 1px solid var(--border);
+        }
+
+        [data-theme="dark"] header {
+            background: rgba(30, 41, 59, 0.95);
         }
 
         header.scrolled {
@@ -726,8 +754,7 @@
         }
 
         .certificate-content {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
+            background: var(--surface);
             padding: clamp(20px, 3.5vh, 25px);
             border-radius: clamp(12px, 2.5vw, 15px);
             box-shadow: var(--shadow);
@@ -736,7 +763,7 @@
         }
 
         .certificate-content:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--surface);
             transform: translateY(-5px) scale(1.02);
         }
 
@@ -986,8 +1013,8 @@
 
         /* Copyright */
         .copyright {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
-            border-top: 1px solid rgba(37, 99, 235, 0.4);
+            background: linear-gradient(135deg, var(--background), var(--surface));
+            border-top: 1px solid var(--border);
             padding: clamp(12px, 2vh, 15px) 0;
             text-align: center;
         }
@@ -1033,7 +1060,7 @@
             display: flex;
             align-items: center;
             gap: clamp(8px, 1.5vw, 10px);
-            color: rgba(255, 255, 255, 0.95);
+            color: var(--text-primary);
             font-size: clamp(0.813rem, 1.8vw, 0.938rem);
             font-weight: 500;
             flex-wrap: wrap;
@@ -1634,8 +1661,8 @@
         const themeToggle = document.getElementById('themeToggle');
         const header = document.querySelector('header');
 
-        // Theme Toggle
-        const savedTheme = localStorage.getItem('theme') || 'dark';
+        // Theme Toggle - إصلاح المشكلة
+        const savedTheme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
         updateThemeIcon(savedTheme);
 
@@ -1651,11 +1678,11 @@
         function updateThemeIcon(theme) {
             const icon = themeToggle.querySelector('i');
             if (theme === 'dark') {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-            } else {
                 icon.classList.remove('fa-moon');
                 icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
             }
         }
 
