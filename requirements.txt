@@ -1,11 +1,2 @@
-# This system uses only built-in Python libraries
-# No external dependencies required!
-
-# Required built-in modules:
-# - tkinter
-# - sqlite3 
-# - datetime
-# - random
-# - time
-# - math
-# - hashlib
+PyQt6==6.6.1
+pycryptodome==3.19.0
